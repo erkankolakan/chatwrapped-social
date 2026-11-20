@@ -33,8 +33,8 @@ async function accessToken() {
 
 export async function check() {
   const token = await accessToken();
-  const { body } = await request(`${API}/user/info/?fields=display_name,username`, { headers: { Authorization: `Bearer ${token}` } });
-  return `@${body.data?.user?.username || body.data?.user?.display_name}`;
+  const { body } = await request(`${API}/user/info/?fields=display_name`, { headers: { Authorization: `Bearer ${token}` } });
+  return `hesap "${body.data?.user?.display_name}"`;
 }
 
 export async function publish(post) {

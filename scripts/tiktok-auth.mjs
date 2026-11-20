@@ -50,7 +50,7 @@ const server = http.createServer(async (req, res) => {
     console.error("Token alınamadı:", tok.error, tok.error_description);
     process.exit(1);
   }
-  const me = await fetch("https://open.tiktokapis.com/v2/user/info/?fields=display_name,username", {
+  const me = await fetch("https://open.tiktokapis.com/v2/user/info/?fields=display_name", {
     headers: { Authorization: `Bearer ${tok.access_token}` },
   }).then((r) => r.json());
   const user = me.data?.user || {};
