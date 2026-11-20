@@ -41,10 +41,16 @@ export async function publish(post) {
   const token = await accessToken();
   const auth = { Authorization: `Bearer ${token}`, "Content-Type": "application/json; charset=UTF-8" };
 
-  const { body: info } = await request(`${API}/post/publish/creator_info/query/`, { method: "POST", headers: auth });
-  const options = info.data?.privacy_level_options || [];
-  const wanted = process.env.TIKTOK_PRIVACY || "SELF_ONLY";
-  const privacy = options.includes(wanted) ? wanted : "SELF_ONLY";
+  // "inbox": video TikTok uygulamasına taslak olarak düşer, kullanıcı tek dokunuşla yayınlar (denetim gerekmez).
+  // "direct": doğrudan yayın (TikTok denetimi onaylandıktan sonra TIKTOK_MODE=direct yap).
+  const mode = process.env.TIKTOK_MODE || "inbox";
+  let privacy = null;
+  if (mode === "direct") {
+    const { body: info } = await request(`${API}/post/publish/creator_info/query/`, { method: "POST", headers: auth });
+    const options = info.data?.privacy_level_options || [];
+    const wanted = process.env.TIKTOK_PRIVACY || "SELF_ONLY";
+    privacy = options.includes(wanted) ? wanted : "SELF_ONLY";
+  }
 
   const bytes = fs.readFileSync(post.file);
   const size = bytes.length;
@@ -52,14 +58,17 @@ export async function publish(post) {
   const chunkSize = size <= 64 * MB ? size : 10 * MB;
   const chunkCount = size <= 64 * MB ? 1 : Math.floor(size / chunkSize);
 
-  const { body: init } = await request(`${API}/post/publish/video/init/`, {
-    method: "POST",
-    headers: auth,
-    body: JSON.stringify({
-      post_info: { title: post.captionFor("tiktok").slice(0, 2200), privacy_level: privacy, disable_comment: false, disable_duet: false, disable_stitch: false },
-      source_info: { source: "FILE_UPLOAD", video_size: size, chunk_size: chunkSize, total_chunk_count: chunkCount },
-    }),
-  });
+  const source_info = { source: "FILE_UPLOAD", video_size: size, chunk_size: chunkSize, total_chunk_count: chunkCount };
+  const { body: init } = mode === "direct"
+    ? await request(`${API}/post/publish/video/init/`, {
+        method: "POST",
+        headers: auth,
+        body: JSON.stringify({
+          post_info: { title: post.captionFor("tiktok").slice(0, 2200), privacy_level: privacy, disable_comment: false, disable_duet: false, disable_stitch: false },
+          source_info,
+        }),
+      })
+    : await request(`${API}/post/publish/inbox/video/init/`, { method: "POST", headers: auth, body: JSON.stringify({ source_info }) });
   const { publish_id, upload_url } = init.data;
 
   for (let i = 0; i < chunkCount; i++) {
@@ -76,9 +85,10 @@ export async function publish(post) {
   for (let i = 0; i < 60; i++) {
     const { body } = await request(`${API}/post/publish/status/fetch/`, { method: "POST", headers: auth, body: JSON.stringify({ publish_id }) });
     const status = body.data?.status;
-    if (status === "PUBLISH_COMPLETE") return { publish_id, privacy };
+    if (status === "PUBLISH_COMPLETE") return { publish_id, mode, privacy };
+    if (status === "SEND_TO_USER_INBOX") return { publish_id, mode, note: "TikTok uygulamasında taslak olarak bekliyor" };
     if (status === "FAILED") throw new Error(`TikTok yayın hatası: ${body.data?.fail_reason}`);
     await sleep(10_000);
   }
-  return { publish_id, privacy, note: "işleniyor" };
+  return { publish_id, mode, note: "işleniyor" };
 }
