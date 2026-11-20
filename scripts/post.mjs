@@ -94,6 +94,10 @@ const targets = Object.entries(PLATFORMS).filter(([name, mod]) => {
 });
 
 console.log(`Gönderi posts/${post.id} (${post.type}) → ${targets.map(([n]) => n).join(", ") || "hiçbiri"}`);
+if (!targets.length) {
+  console.log("Paylaşılabilecek platform yok; gönderi sırada bekliyor.");
+  process.exit(0);
+}
 if (dryRun) {
   console.log("Deneme modu: hiçbir şey paylaşılmadı.");
   process.exit(0);
