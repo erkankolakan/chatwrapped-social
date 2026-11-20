@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TikTok bağlantısı</title>
+<style>body{font:16px system-ui,sans-serif;max-width:560px;margin:60px auto;padding:0 16px;color:#111;background:#fff}</style>
+</head>
+<body>
+<h2>TikTok bağlantısı</h2>
+<p id="msg">Bilgisayarındaki yetkilendirme betiğine aktarılıyor…</p>
+<script>
+  // TikTok izni sonrası gelen kodu, bilgisayarda çalışan betiğe (127.0.0.1:53682) iletir.
+  var q = location.search;
+  if (q.indexOf("code=") >= 0 || q.indexOf("error=") >= 0) {
+    location.replace("http://127.0.0.1:53682/" + q);
+  } else {
+    document.getElementById("msg").textContent = "Bu sayfa TikTok izni sonrası otomatik kullanılır.";
+  }
+</script>
+</body>
+</html>

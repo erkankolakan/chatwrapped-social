@@ -31,6 +31,12 @@ async function accessToken() {
   return body.access_token;
 }
 
+export async function check() {
+  const token = await accessToken();
+  const { body } = await request(`${API}/user/info/?fields=display_name,username`, { headers: { Authorization: `Bearer ${token}` } });
+  return `@${body.data?.user?.username || body.data?.user?.display_name}`;
+}
+
 export async function publish(post) {
   const token = await accessToken();
   const auth = { Authorization: `Bearer ${token}`, "Content-Type": "application/json; charset=UTF-8" };
