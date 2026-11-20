@@ -55,6 +55,18 @@ function loadPost(id) {
   };
 }
 
+// Bağlantı kontrolü: hiçbir şey paylaşmadan anahtarların çalıştığını doğrular
+if (args.includes("--check") || process.env.CHECK === "true") {
+  let bad = 0;
+  for (const [name, mod] of Object.entries(PLATFORMS)) {
+    if (!mod.isConfigured()) { console.log(`- ${name}: anahtar yok`); continue; }
+    if (!mod.check) { console.log(`- ${name}: kontrol yok`); continue; }
+    try { console.log(`✓ ${name}: ${await mod.check()}`); }
+    catch (err) { bad++; console.error(`✗ ${name}: ${err.message}`); }
+  }
+  process.exit(bad ? 1 : 0);
+}
+
 const state = JSON.parse(fs.readFileSync(STATE_FILE, "utf8"));
 const saveState = () => fs.writeFileSync(STATE_FILE, JSON.stringify(state, null, 2) + "\n");
 

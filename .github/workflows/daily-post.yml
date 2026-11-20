@@ -15,6 +15,10 @@ on:
         description: "Deneme modu (paylaşmadan sadece göster)"
         type: boolean
         default: false
+      check:
+        description: "Sadece bağlantı kontrolü (anahtarlar çalışıyor mu)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -40,6 +44,7 @@ jobs:
           FORCE_POST: ${{ inputs.post }}
           FORCE_PLATFORMS: ${{ inputs.platforms }}
           DRY_RUN: ${{ inputs.dry_run }}
+          CHECK: ${{ inputs.check }}
           PUBLIC_BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
           META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}

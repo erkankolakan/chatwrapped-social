@@ -6,6 +6,11 @@ const { FB_PAGE_ID, META_PAGE_TOKEN } = process.env;
 export const isConfigured = () => Boolean(FB_PAGE_ID && META_PAGE_TOKEN);
 export const supports = () => true;
 
+export async function check() {
+  const { body } = await request(`${GRAPH}/${FB_PAGE_ID}?fields=name&access_token=${META_PAGE_TOKEN}`);
+  return `sayfa "${body.name}"`;
+}
+
 export async function publish(post) {
   const text = post.captionFor("facebook");
   const { body } = post.type === "video"

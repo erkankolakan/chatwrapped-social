@@ -6,6 +6,13 @@ const { IG_USER_ID, META_PAGE_TOKEN } = process.env;
 export const isConfigured = () => Boolean(IG_USER_ID && META_PAGE_TOKEN);
 export const supports = () => true;
 
+export async function check() {
+  const { body } = await request(`${GRAPH}/${IG_USER_ID}?fields=username&access_token=${META_PAGE_TOKEN}`);
+  const { body: limit } = await request(`${GRAPH}/${IG_USER_ID}/content_publishing_limit?fields=quota_usage,config&access_token=${META_PAGE_TOKEN}`);
+  const l = limit.data?.[0];
+  return `@${body.username} (24 saatte ${l?.quota_usage ?? "?"}/${l?.config?.quota_total ?? "?"} paylaşım kullanıldı)`;
+}
+
 export async function publish(post) {
   const params = { caption: post.captionFor("instagram"), access_token: META_PAGE_TOKEN };
   if (post.type === "video") Object.assign(params, { media_type: "REELS", video_url: post.url, share_to_feed: "true" });
