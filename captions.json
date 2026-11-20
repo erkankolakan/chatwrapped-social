@@ -1,46 +1,167 @@
 {
   "_tags": {
-    "tr": "#chatwrapped #sohbetözeti #arkadaşgrubu #grupsohbeti #mizah #keşfet",
-    "en": "#chatwrapped #wrapped #groupchat #relatable #bestfriends #fyp"
+    "tr": {
+      "instagram": "#chatwrapped #sohbetözeti #arkadaşgrubu #grupsohbeti #mizah #komik #arkadaşlık #mesajlaşma #reels #keşfet",
+      "facebook": "#chatwrapped #sohbetözeti #arkadaşgrubu",
+      "tiktok": "#chatwrapped #sohbetözeti #arkadaşgrubu #grupsohbeti #mizah #keşfet #fyp",
+      "youtube": "#Shorts #chatwrapped #sohbetözeti #arkadaşgrubu #mizah"
+    },
+    "en": {
+      "instagram": "#chatwrapped #wrapped #groupchat #relatable #bestfriends #friendship #funny #texting #reels #explore",
+      "facebook": "#chatwrapped #groupchat #relatable",
+      "tiktok": "#chatwrapped #wrapped #groupchat #relatable #bestfriends #fyp #foryou",
+      "youtube": "#Shorts #chatwrapped #groupchat #relatable #funny"
+    }
   },
   "_cta": {
-    "tr": "Kendi sohbetinin özetini gör 👉 Chat Wrapped, link profilde 🎁",
-    "en": "See your own chat's recap 👉 Chat Wrapped, link in bio 🎁"
+    "tr": {
+      "bio": "Kendi sohbetinin özetini gör 👉 Chat Wrapped, link profilde 🎁",
+      "link": "Kendi sohbetinin özetini gör 👉 Chat Wrapped'ı indir: https://chatwrapped.fun 🎁"
+    },
+    "en": {
+      "bio": "See your own chat's recap 👉 Chat Wrapped, link in bio 🎁",
+      "link": "See your own chat's recap 👉 Get Chat Wrapped: https://chatwrapped.fun 🎁"
+    }
   },
-  "C001": { "tr": "Grubun ödül gecesi başlıyor 🏆 En çok kim yazdı, kim hep geç cevap veriyor?" },
-  "C002": { "tr": "Sence grupta en çok kim yazdı? 🤔 Tahminini yorumlara bırak!" },
-  "C003": { "tr": "Her grupta bu 4 kişi var 😂 Sizin gruptaki hangisi?", "en": "Every group chat has these 4 people 😂 Which one are you?" },
-  "C004": { "tr": "Gece 3'te hâlâ yazan o kişi 🦉 Etiketle!", "en": "That one friend still texting at 3 AM 🦉 Tag them!" },
-  "C005": { "tr": "Kavgadan sonra ilk kim yazar? 👀 Veriler yalan söylemez.", "en": "Who texts first after a fight? 👀 The data doesn't lie." },
-  "C006": { "tr": "Görüldü… ve cevap yok 🙃 Grubun 'görüldü' şampiyonu kim?", "en": "Seen… and no reply 🙃 Who's the left-on-read champion?" },
-  "C007": { "tr": "Aile grubunun gerçek yüzü 👨‍👩‍👧‍👦 Günaydın mesajları dahil.", "en": "The truth about the family group chat 👨‍👩‍👧‍👦 Good morning texts included." },
-  "C008": { "tr": "Tatil planı grupta başlar, grupta biter ✈️ Kim hep 'ben varım' deyip gelmiyor?", "en": "Every trip starts and dies in the group chat ✈️ Who always says 'I'm in' and never shows?" },
-  "C009": { "tr": "Çiftler, sohbetiniz neler söylüyor? 💞 Kim daha çok yazıyor?", "en": "Couples, what does your chat say about you? 💞 Who texts more?" },
-  "C010": { "tr": "Grubun ödülleri dağıtılıyor 🏆 Sizin grupta kim neyi kazanırdı?", "en": "Group chat awards are in 🏆 Who wins what in yours?" },
-  "C011": { "tr": "iPhone'da Chat Wrapped nasıl kullanılır? 📱 30 saniyede anlattık.", "en": "How to use Chat Wrapped on iPhone 📱 Explained in 30 seconds." },
-  "C012": { "tr": "Android'de Chat Wrapped nasıl kullanılır? 🤖 30 saniyede anlattık.", "en": "How to use Chat Wrapped on Android 🤖 Explained in 30 seconds." },
-  "C014": { "tr": "Bu arkadaşlığı kim taşıyor? 💪 Mesaj sayıları ortada.", "en": "Who's carrying this friendship? 💪 The message count says it all." },
-  "C015": { "tr": "Eski sevgiliyle sohbetimi analiz ettirdim… 💔 Sonuç beklediğim gibi değildi.", "en": "I had my chat with my ex analyzed… 💔 Not what I expected." },
-  "C016": { "tr": "Yılın özeti sezonu başladı 🎁 Sohbetlerinin 2026'sı nasıl geçti?" },
-  "C017": { "tr": "Hep 'tm' diyor… soğudu mu? 🥶 Mesajlar her şeyi anlatıyor.", "en": "Always replying 'k'… are they losing interest? 🥶 The texts tell everything." },
-  "C018": { "tr": "Bahane kralı: 312 mesaj, 0 maç ⚽ Herkesin grubunda bir tane var.", "en": "The excuse king: 312 messages, 0 games ⚽ Every group has one." },
-  "C019": { "tr": "Sesli mesaj baronu 🎙️ 4 dakikalık sesli mesaj atan o arkadaş.", "en": "The voice note baron 🎙️ That friend who sends 4-minute voice notes." },
-  "C020": { "tr": "Annemin 'yedin mi?' sayısı 🍲 Bir yılda kaç kez sordu dersin?", "en": "How many times mom asked 'did you eat?' 🍲 Take a guess." },
-  "C021": { "tr": "'İyi geceler' 47 kez 🌙 Ama kimse uyumuyor.", "en": "'Goodnight' 47 times 🌙 And nobody actually sleeps." },
-  "C022": { "tr": "3 saniyen var: grubun gece kuşu kim? 🦉", "en": "You have 3 seconds: who's the group's night owl? 🦉" },
-  "C023": { "tr": "Wrapped sezonu geldi 🎁 Bu yıl sohbetlerinde neler oldu?", "en": "Wrapped season is here 🎁 What happened in your chats this year?" },
-  "C024": { "tr": "Diyet grubu: 'yarın başlıyorum' 🍕 Kaçıncı yarın bu?", "en": "The diet group chat: 'starting tomorrow' 🍕 Which tomorrow is this?" },
-  "C025": { "tr": "Grubun hayaleti 👻 Okuyor ama hiç yazmıyor.", "en": "The group chat ghost 👻 Reads everything, never replies." },
-  "C026": { "tr": "Hep ben yazıyorum… %83 😩 Sizde oran kaç?", "en": "I always text first… 83% 😩 What's your number?" },
-  "C027": { "tr": "Gizli uyum skorunuz kaç? 💯 Sohbetiniz biliyor.", "en": "What's your secret compatibility score? 💯 Your chat knows." },
-  "C028": { "tr": "'Bir ara buluşalım' 📅 3 yıldır aynı mesaj.", "en": "'Let's catch up soon' 📅 Same text for 3 years." },
-  "C029": { "tr": "Her grupta olan 5 tip üye 👥 Sen hangisisin?", "en": "5 types of people in every group chat 👥 Which one are you?" },
-  "C030": { "tr": "Crush'ın cevap süresi ⏱️ Sen 2 saniyede, o 2 saatte.", "en": "Your crush's reply time ⏱️ You: 2 seconds. Them: 2 hours." },
-  "C031": { "tr": "Mesajlardan tahmin et: hangi grup? 🧩", "en": "Guess the group chat from the messages 🧩" },
-  "C032": { "tr": "Yılbaşı dakikası 🎆 00:00'da grupta kim ilk yazdı?", "en": "The New Year minute 🎆 Who texted the group first at midnight?" },
-  "C033": { "tr": "Ev arkadaşları grubu: kimin sırası bulaşık? 🍽️", "en": "Roommates group chat: whose turn is it for the dishes? 🍽️" },
-  "C034": { "tr": "Sadece emojiyle konuşan arkadaş 😂🙃🔥 Sizde de var mı?", "en": "That friend who only talks in emojis 😂🙃🔥 You have one too?" },
-  "C035": { "tr": "8 yıllık kanka 🫶 Sohbetinizin özeti duygusal olabilir.", "en": "8 years of best friendship 🫶 Your chat recap might get emotional." },
-  "C036": { "tr": "Kalp savaşı ❤️ Kim daha çok kalp attı?", "en": "The heart war ❤️ Who sent more hearts?" },
-  "C037": { "tr": "'Yazıyor…' 4 dakika sonra: 'ok' 😐", "en": "'Typing…' for 4 minutes, then: 'ok' 😐" }
+  "C001": {
+    "tr": "Grubun ödül gecesi başlıyor 🏆 En çok kim yazdı, kim hep geç cevap veriyor?"
+  },
+  "C002": {
+    "tr": "Sence grupta en çok kim yazdı? 🤔 Tahminini yorumlara bırak!"
+  },
+  "C003": {
+    "tr": "Her grupta bu 4 kişi var 😂 Sizin gruptaki hangisi?",
+    "en": "Every group chat has these 4 people 😂 Which one are you?"
+  },
+  "C004": {
+    "tr": "Gece 3'te hâlâ yazan o kişi 🦉 Etiketle!",
+    "en": "That one friend still texting at 3 AM 🦉 Tag them!"
+  },
+  "C005": {
+    "tr": "Kavgadan sonra ilk kim yazar? 👀 Veriler yalan söylemez.",
+    "en": "Who texts first after a fight? 👀 The data doesn't lie."
+  },
+  "C006": {
+    "tr": "Görüldü… ve cevap yok 🙃 Grubun 'görüldü' şampiyonu kim?",
+    "en": "Seen… and no reply 🙃 Who's the left-on-read champion?"
+  },
+  "C007": {
+    "tr": "Aile grubunun gerçek yüzü 👨‍👩‍👧‍👦 Günaydın mesajları dahil.",
+    "en": "The truth about the family group chat 👨‍👩‍👧‍👦 Good morning texts included."
+  },
+  "C008": {
+    "tr": "Tatil planı grupta başlar, grupta biter ✈️ Kim hep 'ben varım' deyip gelmiyor?",
+    "en": "Every trip starts and dies in the group chat ✈️ Who always says 'I'm in' and never shows?"
+  },
+  "C009": {
+    "tr": "Çiftler, sohbetiniz neler söylüyor? 💞 Kim daha çok yazıyor?",
+    "en": "Couples, what does your chat say about you? 💞 Who texts more?"
+  },
+  "C010": {
+    "tr": "Grubun ödülleri dağıtılıyor 🏆 Sizin grupta kim neyi kazanırdı?",
+    "en": "Group chat awards are in 🏆 Who wins what in yours?"
+  },
+  "C011": {
+    "tr": "iPhone'da Chat Wrapped nasıl kullanılır? 📱 30 saniyede anlattık.",
+    "en": "How to use Chat Wrapped on iPhone 📱 Explained in 30 seconds."
+  },
+  "C012": {
+    "tr": "Android'de Chat Wrapped nasıl kullanılır? 🤖 30 saniyede anlattık.",
+    "en": "How to use Chat Wrapped on Android 🤖 Explained in 30 seconds."
+  },
+  "C014": {
+    "tr": "Bu arkadaşlığı kim taşıyor? 💪 Mesaj sayıları ortada.",
+    "en": "Who's carrying this friendship? 💪 The message count says it all."
+  },
+  "C015": {
+    "tr": "Eski sevgiliyle sohbetimi analiz ettirdim… 💔 Sonuç beklediğim gibi değildi.",
+    "en": "I had my chat with my ex analyzed… 💔 Not what I expected."
+  },
+  "C016": {
+    "tr": "Yılın özeti sezonu başladı 🎁 Sohbetlerinin 2026'sı nasıl geçti?"
+  },
+  "C017": {
+    "tr": "Hep 'tm' diyor… soğudu mu? 🥶 Mesajlar her şeyi anlatıyor.",
+    "en": "Always replying 'k'… are they losing interest? 🥶 The texts tell everything."
+  },
+  "C018": {
+    "tr": "Bahane kralı: 312 mesaj, 0 maç ⚽ Herkesin grubunda bir tane var.",
+    "en": "The excuse king: 312 messages, 0 games ⚽ Every group has one."
+  },
+  "C019": {
+    "tr": "Sesli mesaj baronu 🎙️ 4 dakikalık sesli mesaj atan o arkadaş.",
+    "en": "The voice note baron 🎙️ That friend who sends 4-minute voice notes."
+  },
+  "C020": {
+    "tr": "Annemin 'yedin mi?' sayısı 🍲 Bir yılda kaç kez sordu dersin?",
+    "en": "How many times mom asked 'did you eat?' 🍲 Take a guess."
+  },
+  "C021": {
+    "tr": "'İyi geceler' 47 kez 🌙 Ama kimse uyumuyor.",
+    "en": "'Goodnight' 47 times 🌙 And nobody actually sleeps."
+  },
+  "C022": {
+    "tr": "3 saniyen var: grubun gece kuşu kim? 🦉",
+    "en": "You have 3 seconds: who's the group's night owl? 🦉"
+  },
+  "C023": {
+    "tr": "Wrapped sezonu geldi 🎁 Bu yıl sohbetlerinde neler oldu?",
+    "en": "Wrapped season is here 🎁 What happened in your chats this year?"
+  },
+  "C024": {
+    "tr": "Diyet grubu: 'yarın başlıyorum' 🍕 Kaçıncı yarın bu?",
+    "en": "The diet group chat: 'starting tomorrow' 🍕 Which tomorrow is this?"
+  },
+  "C025": {
+    "tr": "Grubun hayaleti 👻 Okuyor ama hiç yazmıyor.",
+    "en": "The group chat ghost 👻 Reads everything, never replies."
+  },
+  "C026": {
+    "tr": "Hep ben yazıyorum… %83 😩 Sizde oran kaç?",
+    "en": "I always text first… 83% 😩 What's your number?"
+  },
+  "C027": {
+    "tr": "Gizli uyum skorunuz kaç? 💯 Sohbetiniz biliyor.",
+    "en": "What's your secret compatibility score? 💯 Your chat knows."
+  },
+  "C028": {
+    "tr": "'Bir ara buluşalım' 📅 3 yıldır aynı mesaj.",
+    "en": "'Let's catch up soon' 📅 Same text for 3 years."
+  },
+  "C029": {
+    "tr": "Her grupta olan 5 tip üye 👥 Sen hangisisin?",
+    "en": "5 types of people in every group chat 👥 Which one are you?"
+  },
+  "C030": {
+    "tr": "Crush'ın cevap süresi ⏱️ Sen 2 saniyede, o 2 saatte.",
+    "en": "Your crush's reply time ⏱️ You: 2 seconds. Them: 2 hours."
+  },
+  "C031": {
+    "tr": "Mesajlardan tahmin et: hangi grup? 🧩",
+    "en": "Guess the group chat from the messages 🧩"
+  },
+  "C032": {
+    "tr": "Yılbaşı dakikası 🎆 00:00'da grupta kim ilk yazdı?",
+    "en": "The New Year minute 🎆 Who texted the group first at midnight?"
+  },
+  "C033": {
+    "tr": "Ev arkadaşları grubu: kimin sırası bulaşık? 🍽️",
+    "en": "Roommates group chat: whose turn is it for the dishes? 🍽️"
+  },
+  "C034": {
+    "tr": "Sadece emojiyle konuşan arkadaş 😂🙃🔥 Sizde de var mı?",
+    "en": "That friend who only talks in emojis 😂🙃🔥 You have one too?"
+  },
+  "C035": {
+    "tr": "8 yıllık kanka 🫶 Sohbetinizin özeti duygusal olabilir.",
+    "en": "8 years of best friendship 🫶 Your chat recap might get emotional."
+  },
+  "C036": {
+    "tr": "Kalp savaşı ❤️ Kim daha çok kalp attı?",
+    "en": "The heart war ❤️ Who sent more hearts?"
+  },
+  "C037": {
+    "tr": "'Yazıyor…' 4 dakika sonra: 'ok' 😐",
+    "en": "'Typing…' for 4 minutes, then: 'ok' 😐"
+  }
 }

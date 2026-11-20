@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>TikTok açıklaması</title>
+<style>
+  :root { --bg:#fff; --fg:#111; --muted:#666; --card:#f4f4f6; --accent:#fe2c55; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#111; --fg:#f2f2f2; --muted:#999; --card:#1d1d20; } }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.45 system-ui,-apple-system,sans-serif; }
+  main { max-width:560px; margin:0 auto; padding:24px 16px 48px; }
+  h1 { font-size:20px; margin:0 0 4px; }
+  p.sub { color:var(--muted); margin:0 0 20px; font-size:14px; }
+  .card { background:var(--card); border-radius:14px; padding:16px; margin-bottom:14px; }
+  .meta { color:var(--muted); font-size:13px; margin-bottom:8px; }
+  pre { white-space:pre-wrap; word-break:break-word; font:inherit; margin:0 0 12px; }
+  button { width:100%; border:0; border-radius:10px; padding:14px; font:600 16px system-ui,sans-serif; background:var(--accent); color:#fff; cursor:pointer; }
+  button.done { background:#1a9b55; }
+  details summary { cursor:pointer; color:var(--muted); margin:18px 0 10px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Bugünün TikTok açıklaması</h1>
+  <p class="sub">TikTok'ta taslağı aç → bu açıklamayı kopyala → yapıştır → Paylaş.</p>
+  <div id="latest">Yükleniyor…</div>
+  <details><summary>Önceki günler</summary><div id="older"></div></details>
+</main>
+<script>
+  function card(item, big) {
+    var el = document.createElement("div");
+    el.className = "card";
+    var date = new Date(item.at).toLocaleString("tr-TR", { dateStyle: "medium", timeStyle: "short" });
+    var meta = document.createElement("div"); meta.className = "meta"; meta.textContent = date + " · " + item.post;
+    var pre = document.createElement("pre"); pre.textContent = item.caption;
+    var btn = document.createElement("button"); btn.textContent = "Açıklamayı kopyala";
+    btn.onclick = function () {
+      navigator.clipboard.writeText(item.caption).then(function () {
+        btn.textContent = "Kopyalandı ✓"; btn.className = "done";
+      }, function () {
+        var r = document.createRange(); r.selectNodeContents(pre);
+        var s = getSelection(); s.removeAllRanges(); s.addRange(r);
+        btn.textContent = "Seçildi, kopyala";
+      });
+    };
+    el.append(meta, pre, btn);
+    return el;
+  }
+  fetch("tiktok-latest.json?" + Date.now()).then(function (r) { return r.json(); }).then(function (list) {
+    var latest = document.getElementById("latest"); latest.textContent = "";
+    if (!list.length) { latest.textContent = "Henüz TikTok'a gönderilmiş taslak yok."; return; }
+    latest.append(card(list[0], true));
+    var older = document.getElementById("older");
+    list.slice(1).forEach(function (i) { older.append(card(i)); });
+  }).catch(function () { document.getElementById("latest").textContent = "Liste yüklenemedi."; });
+</script>
+</body>
+</html>

@@ -123,6 +123,13 @@ for (const [name, mod] of targets) {
     const result = await mod.publish(post);
     record[name] = { ok: true, at: new Date().toISOString(), ...result };
     console.log(`✓ ${name}: ${JSON.stringify(result)}`);
+    // TikTok taslağına açıklama eklenemediği için, kopyalama sayfası (tiktok.html) için kaydet
+    if (name === "tiktok" && result.mode === "inbox") {
+      const f = path.join(ROOT, "tiktok-latest.json");
+      const list = fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, "utf8")) : [];
+      list.unshift({ post: post.id, at: new Date().toISOString(), caption: post.captionFor("tiktok") });
+      fs.writeFileSync(f, JSON.stringify(list.slice(0, 10), null, 2) + "\n");
+    }
   } catch (err) {
     failed++;
     record[name] = { ok: false, at: new Date().toISOString(), error: String(err.message || err).slice(0, 500) };

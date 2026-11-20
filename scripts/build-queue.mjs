@@ -8,7 +8,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const ADS = (process.argv[2] || path.join(os.homedir(), "Desktop/ChatWrapped-Ads")).replace(/^~/, os.homedir());
+const ADS = (process.argv.slice(2).find((a) => !a.startsWith("--")) || path.join(os.homedir(), "Desktop/ChatWrapped-Ads")).replace(/^~/, os.homedir());
 const POSTS = path.join(ROOT, "posts");
 const captions = JSON.parse(fs.readFileSync(path.join(ROOT, "captions.json"), "utf8"));
 const LANGS = { tr: "tr-TR", en: "en-US" };
@@ -57,6 +57,28 @@ for (const c of campaigns) {
 }
 const order = [...firstPass, ...secondPass];
 
+// Her platform için açıklama dosyaları: caption.txt (Instagram) + caption.<platform>.txt
+const CTA_STYLE = { instagram: "bio", tiktok: "bio", facebook: "link", youtube: "link" };
+function writeCaptions(dir, code, lang) {
+  const hook = captions[code]?.[lang] || (lang === "tr" ? "Sohbetlerinin gizli istatistikleri 👀" : "The hidden stats of your chats 👀");
+  for (const [platform, style] of Object.entries(CTA_STYLE)) {
+    const text = `${hook}\n\n${captions._cta[lang][style]}\n\n${captions._tags[lang][platform]}\n`;
+    fs.writeFileSync(path.join(dir, platform === "instagram" ? "caption.txt" : `caption.${platform}.txt`), text);
+  }
+  fs.writeFileSync(path.join(dir, "title.txt"), `${hook.split(/[.!?]/)[0].trim()}\n`);
+}
+
+// --refresh-captions: var olan tüm gönderilerin açıklamalarını captions.json'dan yeniden yazar
+if (process.argv.includes("--refresh-captions")) {
+  let count = 0;
+  for (const d of fs.readdirSync(POSTS).filter((d) => /^\d{3}-C\d{3}-(tr|en)$/.test(d))) {
+    writeCaptions(path.join(POSTS, d), d.slice(4, 8), d.slice(9));
+    count++;
+  }
+  console.log(`${count} gönderinin açıklaması güncellendi.`);
+  process.exit(0);
+}
+
 // Kuyrukta zaten olanlar (klasör adı: 001-C003-tr)
 fs.mkdirSync(POSTS, { recursive: true });
 const existing = fs.readdirSync(POSTS).filter((d) => /^\d{3}-C\d{3}-(tr|en)$/.test(d));
@@ -70,9 +92,7 @@ for (const { c, lang } of order) {
   const dir = path.join(POSTS, `${String(++n).padStart(3, "0")}-${key}`);
   fs.mkdirSync(dir);
   fs.copyFileSync(c.videos[lang], path.join(dir, "video.mp4"));
-  const hook = captions[c.code]?.[lang] || (lang === "tr" ? "Sohbetlerinin gizli istatistikleri 👀" : "The hidden stats of your chats 👀");
-  fs.writeFileSync(path.join(dir, "caption.txt"), `${hook}\n\n${captions._cta[lang]}\n\n${captions._tags[lang]}\n`);
-  fs.writeFileSync(path.join(dir, "title.txt"), `${hook.split(/[.!?]/)[0].trim()}\n`);
+  writeCaptions(dir, c.code, lang);
   if (DATES[key]) fs.writeFileSync(path.join(dir, "post.json"), JSON.stringify({ date: DATES[key] }) + "\n");
   console.log(`+ ${path.basename(dir)}  ←  ${path.relative(ADS, c.videos[lang])}`);
   added++;
