@@ -40,6 +40,14 @@ server.listen(0, "127.0.0.1", () => {
       headers: { Authorization: `Bearer ${tok.access_token}` },
     }).then((r) => r.json());
     const channel = ch.items?.[0]?.snippet?.title || "(kanal bulunamadı)";
+    const handle = ch.items?.[0]?.snippet?.customUrl || "";
+    const expect = (process.env.EXPECT_CHANNEL || "@chatwrappedfun").toLowerCase();
+    if (handle.toLowerCase() !== expect) {
+      res.setHeader("Content-Type", "text/html; charset=utf-8");
+      res.end(`<h2>Yanlış kanal: ${channel} (${handle})</h2><p>Hiçbir şey kaydedilmedi. Terminale dön, tekrar deneyeceğiz; bu kez hesap seçerken ${expect} kanalını seç.</p>`);
+      console.error(`Yanlış kanal seçildi: ${channel} (${handle}). Beklenen: ${expect}. Hiçbir şey kaydedilmedi, JSON dosyası duruyor.`);
+      process.exit(2);
+    }
     for (const [name, value] of [["YT_CLIENT_ID", client_id], ["YT_CLIENT_SECRET", client_secret], ["YT_REFRESH_TOKEN", tok.refresh_token]]) {
       execFileSync("gh", ["secret", "set", name, "-R", REPO], { input: value });
       console.log(`✓ ${name} kaydedildi`);
