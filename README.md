@@ -49,3 +49,9 @@ Gönderi ekledikten sonra commit + push yeterli. GitHub web sitesinden "Add file
 Anahtarı olmayan platform atlanır, yani platformları tek tek açabilirsin.
 
 Değişkenler (Variables): `TIKTOK_PRIVACY` (`PUBLIC_TO_EVERYONE`, TikTok denetiminden sonra) · `YT_PRIVACY` (`public` varsayılan).
+
+## TikTok modu
+
+- Şu an `inbox` (taslak) modunda: video her gün TikTok uygulamasına bildirimle düşer, uygulamadan tek dokunuşla yayınlanır.
+- TikTok uygulama denetimi onaylanınca: production Client Key/Secret ile `node scripts/tiktok-auth.mjs` tekrar çalıştırılır ve
+  repo Variables'a `TIKTOK_MODE=direct`, `TIKTOK_PRIVACY=PUBLIC_TO_EVERYONE` eklenir → tam otomatik.
