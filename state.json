@@ -19,9 +19,11 @@
         "privacy": "public"
       },
       "tiktok": {
-        "ok": false,
-        "at": "2026-11-20T19:51:34.159Z",
-        "error": "403 https://open.tiktokapis.com/v2/post/publish/video/init/: Please review our integration guidelines at https://developers.tiktok.com/doc/content-sharing-guidelines/"
+        "ok": true,
+        "at": "2026-11-20T19:53:00.386Z",
+        "publish_id": "v_inbox_file~v2.7710343795358828565",
+        "mode": "inbox",
+        "note": "TikTok uygulamasında taslak olarak bekliyor"
       }
     }
   }
