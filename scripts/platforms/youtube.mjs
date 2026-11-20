@@ -8,11 +8,24 @@ const PRIVACY = process.env.YT_PRIVACY || "public";
 export const isConfigured = () => Boolean(YT_CLIENT_ID && YT_CLIENT_SECRET && YT_REFRESH_TOKEN);
 export const supports = (type) => type === "video";
 
-export async function publish(post) {
-  const { body: tok } = await request("https://oauth2.googleapis.com/token", {
+async function accessToken() {
+  const { body } = await request("https://oauth2.googleapis.com/token", {
     method: "POST",
     body: form({ client_id: YT_CLIENT_ID, client_secret: YT_CLIENT_SECRET, refresh_token: YT_REFRESH_TOKEN, grant_type: "refresh_token" }),
   });
+  return body;
+}
+
+export async function check() {
+  const tok = await accessToken();
+  const { body } = await request("https://www.googleapis.com/youtube/v3/channels?part=snippet&mine=true", {
+    headers: { Authorization: `Bearer ${tok.access_token}` },
+  });
+  return `kanal "${body.items?.[0]?.snippet?.title}"`;
+}
+
+export async function publish(post) {
+  const tok = await accessToken();
 
   const caption = post.captionFor("youtube");
   let title = post.title || caption.split("\n")[0] || "Chat Wrapped";
