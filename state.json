@@ -17,6 +17,11 @@
         "id": "Rpkg2mZryN4",
         "url": "https://youtube.com/shorts/Rpkg2mZryN4",
         "privacy": "public"
+      },
+      "tiktok": {
+        "ok": false,
+        "at": "2026-11-20T19:51:34.159Z",
+        "error": "403 https://open.tiktokapis.com/v2/post/publish/video/init/: Please review our integration guidelines at https://developers.tiktok.com/doc/content-sharing-guidelines/"
       }
     }
   }
