@@ -68,13 +68,10 @@ if (forcedPost) {
   if (!postIds.includes(forcedPost)) throw new Error(`posts/${forcedPost} yok`);
   post = loadPost(forcedPost);
 } else {
-  for (const id of postIds) {
-    if (state.published[id]) continue;
-    const p = loadPost(id);
-    if (p.date && p.date > today) continue; // ileri tarihli, sırası gelmedi
-    post = p;
-    break;
-  }
+  const pending = postIds.filter((id) => !state.published[id]).map(loadPost);
+  // Önce tarihi gelmiş mevsimlik gönderiler (en eski tarih önce), sonra sıradaki tarihsiz gönderi
+  post = pending.filter((p) => p.date && p.date <= today).sort((a, b) => a.date.localeCompare(b.date))[0]
+    || pending.find((p) => !p.date);
 }
 
 if (!post) {
