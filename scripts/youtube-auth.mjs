@@ -19,7 +19,7 @@ const server = http.createServer();
 server.listen(0, "127.0.0.1", () => {
   const redirect = `http://127.0.0.1:${server.address().port}`;
   const url = "https://accounts.google.com/o/oauth2/v2/auth?" + new URLSearchParams({
-    client_id, redirect_uri: redirect, response_type: "code", scope: SCOPES, access_type: "offline", prompt: "consent",
+    client_id, redirect_uri: redirect, response_type: "code", scope: SCOPES, access_type: "offline", prompt: "select_account consent",
   });
   console.log("Tarayıcıda Google izin sayfası açılıyor. @chatwrappedfun kanalının hesabıyla giriş yap ve izin ver.");
   execFileSync("open", [url]);
