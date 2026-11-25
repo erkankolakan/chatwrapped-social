@@ -103,6 +103,32 @@
         "url": "https://youtube.com/shorts/eDCosEnof0I",
         "privacy": "public"
       }
+    },
+    "005-C005-en": {
+      "instagram": {
+        "ok": true,
+        "at": "2026-11-25T01:16:42.842Z",
+        "id": "17968975190984762"
+      },
+      "facebook": {
+        "ok": true,
+        "at": "2026-11-25T01:16:47.755Z",
+        "id": "1648913546234261"
+      },
+      "tiktok": {
+        "ok": true,
+        "at": "2026-11-25T01:17:11.663Z",
+        "publish_id": "v_inbox_file~v2.7711911688089487412",
+        "mode": "inbox",
+        "note": "TikTok uygulamasında taslak olarak bekliyor"
+      },
+      "youtube": {
+        "ok": true,
+        "at": "2026-11-25T01:17:13.292Z",
+        "id": "dkXlEn1odBI",
+        "url": "https://youtube.com/shorts/dkXlEn1odBI",
+        "privacy": "public"
+      }
     }
   }
 }
